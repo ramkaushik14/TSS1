@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>The skill shop</title>
+
+   
+{% load static %}
+
+<!-- Bootstrap core CSS -->
+<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+<!-- Additional CSS Files -->
+<link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/templatemo-scholar.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+
+
+<!-- Your custom CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+
+
+
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <h1>theskillshop</h1>
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Search Start ***** -->
+                    <div class="search-input">
+                        <form id="search" action="#">
+                            <!-- Add search input if needed -->
+                        </form>
+                    </div>
+                    <!-- ***** Search End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="create">Paste content</a></li>
+                        <li class="nav-item dropdown scroll-to-section">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Curriculum
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li><a class="dropdown-item" href="{% url 'view_pdf' 'GENAI.pdf' %}" target="_blank">GEN.AI Curriculum</a></li>
+                                <li><a class="dropdown-item" href="{% url 'view_pdf' 'Django.pdf' %}"  target="_blank">Full stack curriculum</a></li>
+                                <li><a class="dropdown-item" href="{% url 'view_pdf' 'AWS.pdf' %}" target="_blank">Cloud computing curriculum</a></li>
+                            </ul>
+                        </li>
+                        <li class="scroll-to-section"><a href="#services">Services</a></li>
+                        <li class="scroll-to-section"><a href="#courses">Courses</a></li>
+                        <li class="scroll-to-section"><a href="#team">Team</a></li>
+                        <li class="scroll-to-section"><a href="#events">Events</a></li>
+                        <li class="scroll-to-section"><a href="register">Register Now!</a></li>
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<style>
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  position: relative;
+}
+
+.nav a {
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  color: black;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background:black;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  padding: 10px 15px;
+  display: block;
+  color: black;
+}
+
+.dropdown-menu a:hover {
+  background-color: white;
+  color: black !important;
+}
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var dropdown = document.getElementById('navbarDropdown');
+      dropdown.addEventListener('click', function (event) {
+          event.preventDefault();
+          var menu = this.nextElementSibling;
+          if (menu.style.display === 'block') {
+              menu.style.display = 'none';
+          } else {
+              menu.style.display = 'block';
+          }
+      });
+
+      document.addEventListener('click', function (event) {
+          var isClickInside = dropdown.contains(event.target) || dropdown.nextElementSibling.contains(event.target);
+          if (!isClickInside) {
+              dropdown.nextElementSibling.style.display = 'none';
+          }
+      });
+  });
+</script>
+<!-- Add Bootstrap JS CDN -->
+
+  <!-- ***** Header Area End ***** -->
+
+  <div class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="owl-carousel owl-banner">
+            <div class="item item-1">
+              <div class="header-text">
+                <span class="category">Our Courses</span>
+                <h2>With theskillshop, Everything Is Easier</h2>
+                <h5 style="color:white">"Empowering Minds, One Workshop at a Time"</h5>
+                <div class="buttons">
+                  <div class="main-button">
+                    <a href="#">Request Demo</a>
+                  </div>
+                  <div class="icon-button">
+                    <a href="#"><i class="fa fa-play"></i> What's Theskillshop?</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item item-2">
+              <div class="header-text">
+                <span class="category">Best Result</span>
+                <h2>Get skilled by the best.</h2>
+<p>At TheSkillShop, we offer top-notch training and workshops tailored to meet your needs. Learn from industry experts and gain practical knowledge that will set you apart. Whether you're looking to advance your career or gain new skills, our comprehensive programs are designed to help you achieve your goals.</p>
+
+                <div class="buttons">
+                  <div class="main-button">
+                    <a href="#">Request Demo</a>
+                  </div>
+                  <div class="icon-button">
+                    <a href="#"><i class="fa fa-play"></i> What's the best result?</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item item-3">
+              <div class="header-text">
+                <span class="category">Online Learning</span>
+                <h2>Enhance Your Skills Efficiently</h2>
+                <p>Our workshops are designed to provide you with hands-on experience and practical knowledge in a time-efficient manner. By participating in our expertly crafted sessions, you can quickly acquire new skills and apply them directly to real-world scenarios. </p>
+
+                <div class="buttons">
+                  <div class="main-button">
+                    <a href="#">Request Demo</a>
+                  </div>
+                  <div class="icon-button">
+                    <a href="#"><i class="fa fa-play"></i> What's Online Course?</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="services section" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="service-item">
+            <div class="icon">
+              <img src="{% static 'assets/images/service-01.png' %}" alt="online degrees">
+            </div>
+            <div class="main-content">
+              <h4>Trainings</h4>
+             <p>we pride ourselves on delivering high-quality training programs designed to empower and enhance the skills of students and professionals alike. Our platform specializes in providing hands-on, interactive workshops tailored to meet the specific needs of various educational organizations.</p>
+              <div class="main-button">
+                <a href="#">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-item">
+            <div class="icon">
+              <img src="{% static 'assets/images/service-02.png' %}" alt="short courses">
+            </div>
+            <div class="main-content">
+              <h4>Workshops</h4>
+              <p>
+               we offer expertly designed workshops to cater to diverse learning needs. Our workshops are crafted to deliver practical knowledge and hands-on experience in various fields. Each session is led by skilled trainers who provide in-depth insights and actionable skills. </p>
+              <div class="main-button">
+                <a href="#">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="service-item">
+            <div class="icon">
+              <img src="{% static 'assets/images/service-03.png' %}" alt="web experts">
+            </div>
+            <div class="main-content">
+              <h4>Online services</h4>
+              <p>we offer a diverse array of online services designed to enhance learning and skill development from the comfort of your home. Our virtual workshops provide interactive, expert-led sessions on various topics, allowing participants to engage directly with trainers and peers. </p>
+              <div class="main-button">
+                <a href="#">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section about-us">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-1">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+  <h2 class="accordion-header" id="headingOne">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+      Where shall we begin?
+    </button>
+  </h2>
+  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+      Embarking on your journey with TheSkillShop is easy. Whether you’re an individual looking to enhance your skills or an institution seeking specialized training programs, we have tailored solutions for you. Explore our course offerings and find the perfect fit for your needs.
+    </div>
+  </div>
+</div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  How do we work together?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Collaboration is key to our success. At TheSkillShop, we work closely with you to understand your unique requirements and deliver customized training sessions. Our interactive and engaging approach ensures that you gain the maximum benefit from our programs.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Why Theskillshop is the best?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  TheSkillShop stands out for its commitment to excellence. Our experienced trainers, practical learning methods, and comprehensive curriculum ensure that you receive the best education possible. We are dedicated to your growth and success.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  Do we get the best support?
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Absolutely! At TheSkillShop, we pride ourselves on providing top-notch support to our learners. Our team is always available to assist you with any queries or challenges you may face, ensuring a smooth and enriching learning experience.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 align-self-center">
+          <div class="section-heading">
+            <h6 style="padding:20px">About Us</h6>
+            <h2>What make us the best workshops platform?</h2>
+            <p>At TheSkillShop, we are dedicated to delivering the highest quality training and workshops to help you succeed. Our expert trainers bring real-world experience and cutting-edge knowledge to each session, ensuring you gain practical skills that are immediately applicable. </p>
+            <div class="main-button">
+             
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        Discover more
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      At TheSkillShop, we are committed to delivering unparalleled workshop experiences that set us apart from the rest. Here’s why we are the best:
+
+                      Expert Trainers: Our workshops are led by industry professionals with extensive experience and a passion for teaching. They bring practical knowledge and insights that are directly applicable to real-world scenarios.
+                      
+                      Customized Learning: We offer a range of workshops tailored to various skill levels and industries, ensuring that every participant receives relevant and impactful training.
+                      
+                      Interactive Format: Our workshops emphasize hands-on learning, interactive sessions, and practical exercises to enhance understanding and retention of key concepts.
+                      
+                      Up-to-Date Content: We continuously update our workshop content to reflect the latest industry trends, tools, and best practices, keeping you ahead in your field.
+                      
+                      Supportive Environment: Our team provides continuous support throughout the workshop and beyond, addressing any questions or challenges you may encounter.
+                      
+                      Flexible Scheduling: We offer flexible workshop schedules to accommodate different time zones and availability, making it easier for you to fit learning into your busy life.
+                      
+                      Positive Feedback: Our participants consistently praise the quality of our workshops, the expertise of our trainers, and the value they gain from attending.
+                    </div>
+                </div>
+            </div>
+            
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section courses" id="courses" >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="section-heading">
+            <h6>Latest Courses</h6>
+            <h2>Latest Courses</h2>
+          </div>
+        </div>
+      </div>
+      <ul class="event_filter">
+        <li>
+          <a class="is_active" href="#!" data-filter="*">Show All</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".design">Web Dev</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".development">Programming Languages</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".ai">AI/ML</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".cyber">Cyber security</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".cloud">Others</a>
+        </li>
+      </ul>
+      <div class="row event_box">
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 design">
+          <div class="events_item">
+            <div class="thumb">
+              <a href="#"><img src="assets/images/course-01.jpg" alt=""></a>
+              <span class="category">Webdesign</span>
+              <span class="price"><h6><em>$</em>160</h6></span>
+            </div>
+            
+            
+            <div class="down-content">
+              
+              <h4>Mern/Mean stack</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6  development">
+          <div class="events_item">
+            <div class="thumb">
+              <a href="#"><img src="assets/images/course-02.jpg" alt=""></a>
+              <span class="category">Development</span>
+              <span class="price"><h6><em>$</em>340</h6></span>
+            </div>
+            <div class="down-content">
+              <span class="author">Cindy Walker</span>
+              <h4>C/C++ with Datastructures</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 design">
+          <div class="events_item">
+            <div class="thumb">
+              <a href="#"><img src="assets/images/course-03.jpg" alt=""></a>
+              <span class="category">Wordpress</span>
+              <span class="price"><h6><em>$</em>640</h6></span>
+            </div>
+            <div class="down-content">
+           
+              <h4>Python full stack</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 development">
+          <div class="events_item">
+            <div class="thumb">
+              <a href="#"><img src="assets/images/course-04.jpg" alt=""></a>
+              <span class="category">Development</span>
+              <span class="price"><h6><em>$</em>450</h6></span>
+            </div>
+            <div class="down-content">
+            
+              <h4>Python with Datastructures</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 development">
+          <div class="events_item">
+            <div class="thumb">
+              <a href="#"><img src="assets/images/course-04.jpg" alt=""></a>
+              <span class="category">Development</span>
+              <span class="price"><h6><em>$</em>450</h6></span>
+            </div>
+            <div class="down-content">
+              
+              <h4>Java with Datastructures</h4>
+            </div>
+          </div>
+        
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 ai">
+          <div class="events_item">
+            <div class="thumb">
+              <a href="#"><img src="assets/images/course-04.jpg" alt=""></a>
+              <span class="category">Development</span>
+              <span class="price"><h6><em>$</em>450</h6></span>
+            </div>
+            <div class="down-content">
+           
+              <h4>Arificial Intelligence</h4>
+            </div>
+          </div>
+        
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 ai">
+          <div class="events_item">
+            <div class="thumb">
+              <a href="#"><img src="assets/images/course-04.jpg" alt=""></a>
+              <span class="category">Development</span>
+              <span class="price"><h6><em>$</em>450</h6></span>
+            </div>
+            <div class="down-content">
+              
+              <h4>Gen AI</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 ai">
+          <div class="events_item">
+            <div class="thumb">
+              <a href="#"><img src="assets/images/course-04.jpg" alt=""></a>
+              <span class="category">Development</span>
+              <span class="price"><h6><em>$</em>450</h6></span>
+            </div>
+            <div class="down-content">
+              
+              <h4>Machine learning</h4>
+            </div>
+          </div>
+        </div>
+     
+
+
+      <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 cyber">
+        <div class="events_item">
+          <div class="thumb">
+            <a href="#"><img src="assets/images/course-04.jpg" alt=""></a>
+            <span class="category">Development</span>
+            <span class="price"><h6><em>$</em>450</h6></span>
+          </div>
+          <div class="down-content">
+            
+            <h4>Networking</h4>
+          </div>
+        </div>
+      </div>
+
+       
+
+      <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 cyber">
+        <div class="events_item">
+          <div class="thumb">
+            <a href="#"><img src="assets/images/course-04.jpg" alt=""></a>
+            <span class="category">Development</span>
+            <span class="price"><h6><em>$</em>450</h6></span>
+          </div>
+          <div class="down-content">
+            
+            <h4>Ethical Hacking</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 cloud">
+        <div class="events_item">
+          <div class="thumb">
+            <a href="#"><img src="assets/images/course-04.jpg" alt=""></a>
+            <span class="category">Development</span>
+            <span class="price"><h6><em>$</em>450</h6></span>
+          </div>
+          <div class="down-content">
+            
+            <h4>AWS Cloud</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 cloud">
+        <div class="events_item">
+          <div class="thumb">
+            <a href="#"><img src="assets/images/course-04.jpg" alt=""></a>
+            <span class="category">Development</span>
+            <span class="price"><h6><em>$</em>450</h6></span>
+          </div>
+          <div class="down-content">
+          
+            <h4>UI/UX(React/Flutter/Angular)</h4>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section fun-facts">
+    <div class="container">
+      <div class="row justify-content-center align-items-center text-center">
+        <div class="col-lg-12">
+          <div class="wrapper">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 col-md-6">
+                <div class="counter">
+                  <h2 class="timer count-title count-number" data-to="10000" data-speed="1000"></h2>
+                  <p class="count-text">Happy Students</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="counter">
+                  <h2 class="timer count-title count-number" data-to="20" data-speed="1000"></h2>
+                  <p class="count-text">Colleges</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="counter end">
+                  <h2 class="timer count-title count-number" data-to="5" data-speed="1000"></h2>
+                  <p class="count-text">Years Experience</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="team section" id="team">
+    <div class="container">
+      <div class="row justify-content-center">
+        {% comment %} <div class="col-lg-4 col-md-6"> {% endcomment %}
+          {% comment %} <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="team-member">
+            <div class="main-content">
+              <img src="{% static 'assets/images/member-01.jpg' %}" alt="">
+              <span class="category">UI/UX Expert</span>
+              <h4>Shasankan</h4>
+              <ul class="social-icons">
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        {% comment %} <div class="col-lg-4 col-md-6"> {% endcomment %}
+          {% comment %} <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="team-member">
+            <div class="main-content">
+              <img src="{% static 'assets/images/ram.jpeg' %}" alt="">
+              <span class="category">Fullstack expert</span>
+              <h4> Kaushik P</h4>
+              <ul class="social-icons">
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div> {% endcomment %} 
+
+
+        {% comment %} <div class="col-lg-4 col-md-6"> {% endcomment %}
+          <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="team-member">
+            <div class="main-content">
+              <img src="{% static 'assets/images/ram.jpeg' %}" alt="">
+              <span class="category">AI/ML Expert</span>
+              <h4>Ram kaushik</h4>
+              <ul class="social-icons">
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {% comment %} <div class="col-lg-4 col-md-6"> {% endcomment %}
+          <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="team-member">
+            <div class="main-content">
+              <img src="{% static 'assets/images/bijen.png' %}" alt="">
+              <span class="category">Full Stack Expert</span>
+              <h4>Bijen singha</h4>
+              <ul class="social-icons">
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="section testimonials">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="owl-carousel owl-testimonials">
+            <div class="item">
+              <p>"TheSkillShop has transformed our college's approach to skill development. The trainers are knowledgeable, engaging, and truly care about our success. Highly recommended!"</p>
+              <div class="author">
+                <img src="assets/images/testimonial-author.jpg" alt="">
+                <span class="category">Students</span>
+                <h4>Anonymous</h4>
+              </div>
+            </div>
+            <div class="item">
+              <p>"I attended a web development workshop at TheSkillShop, and it was an incredible experience. The hands-on approach and real-world examples made learning so much easier and fun!"</p>
+              <div class="author">
+                <img src="assets/images/testimonial-author.jpg" alt="">
+                <span class="category">Students</span>
+                <h4>Anonymous</h4>
+              </div>
+            </div>
+            <div class="item">
+              <p>"TheSkillShop's training sessions are top-notch. The blend of theoretical knowledge and practical application is perfect for anyone looking to upskill. Plus, the trainers are always available for guidance."</p>
+              <div class="author">
+                <img src="assets/images/testimonial-author.jpg" alt="">
+                <span class="category">Students</span>
+                <h4>Anonymous</h4>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 align-self-center">
+          <div class="section-heading">
+            <h6>TESTIMONIALS</h6>
+            <h2 style="padding:10px">What they say about us?</h2>
+            <p>"We believe that students reviews are the cornerstone of our growth and success, and we strive to continuously improve by listening to the valuable feedback from our clients."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section events" id="events">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="section-heading">
+            <h6>Schedule</h6>
+            <h2>Upcoming Events</h2>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-6">
+          <div class="item">
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="image">
+                  <img src="assets/images/event-01.jpg" alt="">
+                </div>
+              </div>
+              <div class="col-lg-9">
+                <ul>
+                  <li>
+                    <span class="category">AI</span>
+                    <h4>GEN AI</h4>
+                  </li>
+                  <li>
+                    <span>Course open</span>
+                    <h6>Enroll now</h6>
+                  </li>
+                  <li>
+                    <span>Duration:</span>
+                    <h6>30 Hours content</h6>
+                  </li>
+                  <li>
+                    <span>Price:</span>
+                    <h6>5000/inr</h6>
+                  </li>
+                </ul>
+                <a href="#"><i class="fa fa-angle-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-6">
+          <div class="item">
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="image">
+                  <img src="assets/images/event-02.jpg" alt="">
+                </div>
+              </div>
+              <div class="col-lg-9">
+                <ul>
+                  <li>
+                    <span class="category">AI</span>
+                    <h4>Web Dev</h4>
+                  </li>
+                  <li>
+                    <span>Course open</span>
+                    <h6>Enroll now</h6>
+                  </li>
+                  <li>
+                    <span>Duration:</span>
+                    <h6>30 Hours content</h6>
+                  </li>
+                  <li>
+                    <span>Price:</span>
+                    <h6>5000/inr</h6>
+                  </li>
+                </ul>
+                <a href="#"><i class="fa fa-angle-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-6">
+          <div class="item">
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="image">
+                  <img src="assets/images/event-03.jpg" alt="">
+                </div>
+              </div>
+              <div class="col-lg-9">
+                <ul>
+                  <li>
+                    <span class="category">AI</span>
+                    <h4>Data structures</h4>
+                  </li>
+                  <li>
+                    <span>Course open</span>
+                    <h6>Enroll now</h6>
+                  </li>
+                  <li>
+                    <span>Duration:</span>
+                    <h6>30 Hours content</h6>
+                  </li>
+                  <li>
+                    <span>Price:</span>
+                    <h6>5000/inr</h6>
+                  </li>
+                </ul>
+                <a href="#"><i class="fa fa-angle-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-us section" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6  align-self-center">
+          <div class="section-heading">
+            <h6>Contact Us</h6>
+            <h2>Feel free to contact us anytime</h2>
+            <p>Thank you for choosing TheSkillShop. We provide top-quality training and workshop services absolutely free of charge. You can support us by sharing our website with your friends.</p>
+            <div class="special-offer">
+              <span class="offer">off<br><em>20%</em></span>
+              <h6>Valid: <em>till september 2024</em></h6>
+              <h4>Special Offer <em>20%</em> OFF!</h4>
+              <a href="#"><i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="contact-us-content">
+            <form id="contact-form" action="{% url 'contact' %}" method="post">
+    
+                {% csrf_token %}
+                {{ form.as_p }}
+                
+              <div class="row">
+                <div class="col-lg-12">
+                  <fieldset>
+                    <input type="name" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." required="">
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <button type="submit" id="form-submit" class="orange-button">Send Message Now</button>
+                  </fieldset>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © 2024 Theskillshop Organization. All rights reserved. &nbsp;&nbsp;&nbsp;</a></p>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'assets/js/counter.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+ 
+  </body>
+</html>

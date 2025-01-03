@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Paste</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Single Paste</h1>
+        
+        {% if paste %}
+            <div class="alert alert-info" role="alert">
+                <h2>{{ paste.title }}</h2>
+                <pre>{{ paste.content }}</pre>
+            </div>
+        {% else %}
+            <div class="alert alert-warning" role="alert">
+                No paste available.
+            </div>
+        {% endif %}
+        
+        <!-- Centered Back to Homepage Button -->
+        <div class="text-center mt-3">
+            <a href="{% url 'homepage' %}" class="btn btn-secondary">Back to Homepage</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
